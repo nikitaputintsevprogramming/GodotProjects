@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Сцены/Игрок.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Сцены/Моб.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Сцены/Интерфейс.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Скрипты/Level1.gd" type="Script" id=4]
+
+[node name="Level1" type="Node2D"]
+position = Vector2( 0, 2 )
+script = ExtResource( 4 )
+
+[node name="Игрок" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248, 195 )
+
+[node name="Интерфейс" parent="." instance=ExtResource( 3 )]
+
+[node name="Моб" parent="." instance=ExtResource( 2 )]
+position = Vector2( 671, 206 )
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
